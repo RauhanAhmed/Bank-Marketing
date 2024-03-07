@@ -1,0 +1,10 @@
+pandas
+numpy
+psycopg2
+mlflow
+dagshub
+scikit-learn
+catboost
+lightgbm
+joblib
+-e .
