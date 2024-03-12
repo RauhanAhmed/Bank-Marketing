@@ -36,7 +36,7 @@ class DataIngestion:
             
             logger.info("saving data to artifacts")
             os.makedirs(self.dataIngestionConfig.artifactsDir, exist_ok = True)
-            data.to_csv(self.dataIngestionConfig.dataPath)
+            data.to_csv(self.dataIngestionConfig.dataPath, index = False)
 
             logger.info(">>> DATA INGESTION COMPLETE <<<")
         
