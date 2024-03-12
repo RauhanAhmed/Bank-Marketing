@@ -6,5 +6,6 @@ dagshub
 scikit-learn
 catboost
 lightgbm
+python-dotenv
 joblib
 -e .
