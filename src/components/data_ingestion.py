@@ -38,7 +38,7 @@ class DataIngestion:
             os.makedirs(self.dataIngestionConfig.artifactsDir, exist_ok = True)
             data.to_csv(self.dataIngestionConfig.dataPath)
 
-            logger.success(">>> DATA INGESTION COMPLETE <<<")
+            logger.info(">>> DATA INGESTION COMPLETE <<<")
         
         except Exception as e:
             logger.error(CustomException(e))
