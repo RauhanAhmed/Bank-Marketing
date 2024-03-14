@@ -124,7 +124,7 @@ class DataTransformation:
             joblib.dump(kmeans, self.dataTransformationConfig.kmeansModelPath)
 
             data.to_csv(self.dataTransformationConfig.trainDataTransformed, index = False)
-            test_data.csv(self.dataTransformationConfig.testDataTransformed, index = False)
+            test_data.to_csv(self.dataTransformationConfig.testDataTransformed, index = False)
 
         except Exception as e:
             logger.error(CustomException(e))
