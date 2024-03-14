@@ -17,7 +17,7 @@ from dataclasses import dataclass
 
 @dataclass
 class ModelTrainerConfig:
-    dataPath: str = os.path.join("artifacts", "trainData.csv")
+    dataPath: str = os.path.join("artifacts", "trainDataTransformed.csv")
     resultsPath: str = os.path.join("artifacts", "results.json")
 
 class ModelTrainer:
