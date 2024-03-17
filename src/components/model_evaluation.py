@@ -22,8 +22,8 @@ load_dotenv("secrets.env")
 @dataclass
 class ModelEvaluationConfig:
     modelComparisonResults: str = os.path.join("artifacts", "results.json")
-    dataPath: str = os.path.jon("artifacts", "trainDataTransformed.csv")
-    testDataPath: str = os.path.jon("artifacts", "testDataTransformed.csv")
+    dataPath: str = os.path.join("artifacts", "trainDataTransformed.csv")
+    testDataPath: str = os.path.join("artifacts", "testDataTransformed.csv")
 
 class ModelEvaluation:
     def __init__(self) -> None:
@@ -33,8 +33,8 @@ class ModelEvaluation:
     def evaluateModel(self, params: dict) -> Tuple:
         try:
             logger.info("finding best model")
-            results = json.load(self.modelEvaluationConfig.modelComparisonResults)
-            maxF1Score = max(results.values)
+            results = json.load(open(self.modelEvaluationConfig.modelComparisonResults, "rb"))
+            maxF1Score = max(results.values())
             for i in results.keys():
                 if results[i] == maxF1Score:
                     bestModelKey = i
