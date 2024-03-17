@@ -81,13 +81,18 @@ class DataTransformation:
             test_data["y"].replace(to_replace = ["no", "yes"], value = [0, 1], inplace = True)
 
             logger.info("performing label encoding on categoricals")
+            x_train, y_train, x_test, y_test = data.drop("y", axis = 1), data["y"], test_data.drop("y", axis = 1), test_data["y"] 
+
             transformer = ColumnTransformer(
-                transformers=[("categoricalFeature", OrdinalEncoder(), [x for x in data.columns if data[x].dtype == "O"])],
+                transformers=[("categoricalFeature", OrdinalEncoder(), [x for x in x_train.columns if x_train[x].dtype == "O"])],
                 remainder = "passthrough"
             )
 
-            data = pd.DataFrame(transformer.fit_transform(data), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
-            test_data = pd.DataFrame(transformer.transform(test_data), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
+            x_train = pd.DataFrame(transformer.fit_transform(x_train), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
+            x_test = pd.DataFrame(transformer.transform(x_test), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
+
+            data = pd.concat([x_train, y_train], axis = 1)
+            test_data = pd.concat([x_test, y_test], axis = 1)
 
             logger.info("saving the encoder object")
             joblib.dump(transformer, self.dataTransformationConfig.featureEncoderPath)
