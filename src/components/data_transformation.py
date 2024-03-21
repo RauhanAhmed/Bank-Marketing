@@ -88,8 +88,8 @@ class DataTransformation:
                 remainder = "passthrough"
             )
 
-            x_train = pd.DataFrame(transformer.fit_transform(x_train), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
-            x_test = pd.DataFrame(transformer.transform(x_test), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()])
+            x_train = pd.DataFrame(transformer.fit_transform(x_train), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()], index = y_train.index)
+            x_test = pd.DataFrame(transformer.transform(x_test), columns = [x.split("__")[1] for x in transformer.get_feature_names_out()], index = y_test.index)
 
             data = pd.concat([x_train, y_train], axis = 1)
             test_data = pd.concat([x_test, y_test], axis = 1)
