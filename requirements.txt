@@ -3,7 +3,10 @@ numpy
 psycopg2
 mlflow
 dagshub
+joblib
 scikit-learn
+pywebio
+flask
 catboost
 lightgbm
 python-dotenv

@@ -1,10 +1,11 @@
 from src.pipelines.prediction_pipeline import PredictionPipeline
 import time
+import pywebio
 from pywebio.input import *
 from pywebio.output import *
 import numpy as np
 
-if __name__ == "__main__":
+def buildInterface():
     # building the interface
     data = input_group("Predict the ", [
         select(
@@ -60,10 +61,12 @@ if __name__ == "__main__":
         time.sleep(2)
         predictionPipeline = PredictionPipeline()
         result = predictionPipeline.predictResult(array = np.array(data.values()))
-        result = 1
 
     put_image("https://www.pnbmetlife.com/content/dam/pnb-metlife/images/articles/savings/five-interesting-facts.jpg")
     if result == 0:
         put_text("MODEL PREDICTION : The person is not likely to buy a term deposit.")
     else:
         put_text("MODEL PREDICTION : The person is expected to buy the term deposit.")
+
+if __name__ == "__main__":
+    pywebio.platform.flask.start_server(buildInterface, port = 8080, host = "0.0.0.0")
