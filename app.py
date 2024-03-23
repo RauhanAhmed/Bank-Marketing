@@ -64,9 +64,9 @@ def buildInterface():
 
     put_image("https://www.pnbmetlife.com/content/dam/pnb-metlife/images/articles/savings/five-interesting-facts.jpg")
     if result == 0:
-        put_text("MODEL PREDICTION : The person is not likely to buy a term deposit.")
+        put_text("/t/tMODEL PREDICTION : The person is not likely to buy a term deposit.")
     else:
-        put_text("MODEL PREDICTION : The person is expected to buy the term deposit.")
+        put_text("/t/tMODEL PREDICTION : The person is expected to buy the term deposit.")
 
 if __name__ == "__main__":
     pywebio.platform.flask.start_server(buildInterface, port = 8080, host = "0.0.0.0")
