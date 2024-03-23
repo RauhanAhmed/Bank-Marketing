@@ -34,7 +34,7 @@ def buildInterface():
             name = "poutcome", inline = True),
         radio("Was the customer ever contacted previously", options = ["yes", "no"], inline = True,
             required = True, name = "contacted_previously"),
-        select("Type of loan(s) the customer has/have", options = ["personal loan only", "housing loan only", "both"],\
+        select("Type of loan(s) the customer has/have", options = ["personal loan only", "housing loan only", "both", "none"],\
             required = True, name = "loans")
     ])
 
