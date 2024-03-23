@@ -5,9 +5,10 @@ from pywebio.input import *
 from pywebio.output import *
 import numpy as np
 
+@pywebio.config(title = "Term Deposit Prediction")
 def buildInterface():
     # building the interface
-    data = input_group("Predict the ", [
+    data = input_group("Fill the details below", [
         select(
             label = "Select the type of job",
             options = [
@@ -60,7 +61,7 @@ def buildInterface():
     with put_loading().style("position: absolute; left: 50%; top: 50%"):
         time.sleep(2)
         predictionPipeline = PredictionPipeline()
-        result = predictionPipeline.predictResult(array = np.array(data.values()))
+        result = predictionPipeline.predictResult(array = np.array(list(data.values())))
 
     put_image("https://www.pnbmetlife.com/content/dam/pnb-metlife/images/articles/savings/five-interesting-facts.jpg")
     if result == 0:
@@ -69,4 +70,4 @@ def buildInterface():
         put_text("/t/tMODEL PREDICTION : The person is expected to buy the term deposit.")
 
 if __name__ == "__main__":
-    pywebio.platform.flask.start_server(buildInterface, port = 8080, host = "0.0.0.0")
+    pywebio.platform.flask.start_server(buildInterface, port = 80, host = "0.0.0.0")

@@ -1,5 +1,3 @@
-from src.utils.logging import logger
-from src.utils.exceptions import CustomException
 from dataclasses import dataclass
 import numpy as np
 import pandas as pd

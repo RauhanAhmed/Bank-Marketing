@@ -1,6 +1,6 @@
-FROM python:3.12-slim
+FROM python:3.10-slim
 WORKDIR /app
 COPY . /app
-RUN pip install -r requirements.txt
-EXPOSE 8080
+RUN apt-get install -y && pip install --upgrade pip && pip install -r requirements.txt
+EXPOSE 80
 CMD python app.py
