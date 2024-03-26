@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://bankmarketingrauhan.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_1ad0662d0a5644fb89563190227bbe06 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_343b7deffcb3416595a53adcd8bb2814 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_fac9a29340db4ac8b2ab344e82e0cee8 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_297bc61c02364cdc9df0253c10dd92c5 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: bankmarketingrauhan.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1ad0662d0a5644fb89563190227bbe06 }}/termdepositprediction:${{ github.sha }}
+        tags: bankmarketingrauhan.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fac9a29340db4ac8b2ab344e82e0cee8 }}/termdepositprediction:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'termdepositpredictionrauhan'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_676610fbc66c48ab86250af196ee819e }}
-        images: 'bankmarketingrauhan.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1ad0662d0a5644fb89563190227bbe06 }}/termdepositprediction:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_db2af781f7244c3e9b027291aea2f3bd }}
+        images: 'bankmarketingrauhan.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fac9a29340db4ac8b2ab344e82e0cee8 }}/termdepositprediction:${{ github.sha }}'
