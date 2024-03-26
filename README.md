@@ -9,18 +9,23 @@ The project demonstrates a complete workflow, including data ingestion with Cock
 
 **Data Storage & Retrieval**
 - *CockroachDB (SQL Database):* Efficiently stored and retrieved the "Bank Marketing" dataset for data ingestion..
+
 **Data Preprocessing & Analysis** 
 - *Python Libraries (Pandas, NumPy, Seaborn, etc.)*: Handled data manipulation, cleaning, exploration, and visualization, providing insights for feature engineering.
+
 **Model Selection & Model Training** 
 - *Machine Learning Algorithms (CatBoost, Random Forests, SVM, etc)*: Built, trained, and evaluated various machine learning models to predict bank deposit subscriptions.
 - *MLFlow*: Tracked model experiments, hyperparameter tuning results, and other metrics (AUC-ROC, Precision, Recall) for optimal model selection.
 - *DagsHub*: Remote server for comparing different experiments tracked by MLFlow.
+
 **Web Application Development**
 - *Docker*: Containerized the prediction pipeline, ensuring consistent runtime environment across deployment stages.
 - *PyWebIO & Flask*: Developed an interactive web interface for users to leverage the trained model's predictions.
+
 **Model Deployment** 
 - *Microsoft Container Registry (MCR)*: Securely stored the Docker image for deployment.
 - *Microsoft Azure Web App Service*: Hosted the web application built for user interaction with the prediction model.
+
 **CI/CD (Continuous Integration/Continuous Delivery)**
 - *GitHub Actions*: Automated the build, testing, and deployment pipeline for efficient and reliable updates.
 
