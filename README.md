@@ -39,15 +39,15 @@ The project demonstrates a complete workflow, including data ingestion with Cock
 ## Screenshots
 - Web App Demo
 
-![App Screenshot](https://i.ibb.co/h13H222/2024-03-24-01-38-07.gif)
+<img src="https://i.ibb.co/5jNcRQg/ezgif-7-4e9458a4b4.gif" width="650">
 
 - CockroachDB Interface
 
-![App Screenshot](https://i.ibb.co/m84T9Xs/Screenshot-2024-03-26-223725.png)
+<img src="https://i.ibb.co/m84T9Xs/Screenshot-2024-03-26-223725.png" width="650">
 
 - DagsHub MLFlow UI
 
-![App Screenshot](https://i.ibb.co/5r74R8t/Screenshot-2024-03-26-223540.png)
+<img src="https://i.ibb.co/7n9C1W8/Screenshot-2024-03-26-223540.png" width="650">
 
 ## Run Locally
 
